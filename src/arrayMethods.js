@@ -17,9 +17,16 @@ function swapFirstAndLast (arr) {
 
 
 
+
 // Write a function called squareFirstIndex that takes in an array as a parameter.
 // Return the square of a number held at the first index.
-
+function squareFirstIndex (arr) {
+    if (Array.isArray(arr) && arr.length >= 1 && typeof arr[0] === 'number') {
+        return arr[0] ** 2
+    } else {
+        return 'Invalid input'
+    }
+}
 
 
 
@@ -178,7 +185,8 @@ function swapFirstAndLast (arr) {
 // Return the string literal `Temperature was ----- degrees Celcius on date ------."
 
 module.exports = {
-    swapFirstAndLast, squareFirstIndex, getLongerArray
+    swapFirstAndLast, 
+    squareFirstIndex, 
 };
 
 
