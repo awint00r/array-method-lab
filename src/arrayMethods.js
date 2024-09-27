@@ -58,7 +58,13 @@ function arrayHasValue (num, arr) {
 
 // Write a function called getLastIndexOf that takes an array and a value as parameters.
 // Return the highest index number where that value was found (ie the furthest point it exists in the array)
-
+function getLastIndexOf (arr, num) {
+    if (Array.isArray(arr) && typeof num == 'number') {
+        return arr.lastIndexOf(num)
+    } else {
+        return 'Invalid input'
+    }
+}
 
 
 
@@ -197,6 +203,7 @@ module.exports = {
     squareFirstIndex, 
     getLongerArray,
     arrayHasValue,
+    getLastIndexOf,
 };
 
 
