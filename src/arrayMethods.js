@@ -73,7 +73,13 @@ function getLastIndexOf (arr, num) {
 
 // Write a function called getNumberOfTimes that takes in an array and a string.
 // Return a count of how many times the string exists in the array.
-
+function getNumberOfTimes (arr, str) {
+    if (Array.isArray(arr) && typeof str == 'string') {
+        return arr.filter(num => num === str).length;
+    } else {
+        return 'Invalid input'
+    }
+}
 
 
 
@@ -204,6 +210,7 @@ module.exports = {
     getLongerArray,
     arrayHasValue,
     getLastIndexOf,
+    getNumberOfTimes
 };
 
 
