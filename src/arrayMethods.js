@@ -184,7 +184,13 @@ function oddValuesAtEvenIndex (arr) {
 // Write a function called getUpperCase that takes in an array as a parameter.
 // Translate all strings in the array to upper case.
 // Return only an array of only the string values.
-
+function getUpperCase(arr) {
+    if (!Array.isArray(arr)) {
+        return 'Invalid input'
+    } else {
+        return arr.filter(value => typeof value === 'string').map(onlyStrings => onlyStrings.toUpperCase())
+    }
+}
 
 
 
@@ -253,6 +259,7 @@ module.exports = {
     concatArrays,
     popAndShift,
     oddValuesAtEvenIndex,
+    getUpperCase,
 };
 
 
