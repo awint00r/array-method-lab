@@ -151,7 +151,15 @@ function concatArrays (arr1, arr2) {
 // Example input versus output:
 // Original input array: ["yelow", "green", "blue", "red"]
 // Intended output array: ["red", "yellow", "green", "blue"]
-
+function popAndShift (arr) {
+    if (Array.isArray(arr)){
+        let lastValue = arr.pop()
+        arr.unshift(lastValue)
+        return arr;
+    } else {
+        return 'Invalid input'
+    }
+}
 
 
 
@@ -237,6 +245,7 @@ module.exports = {
     returnString,
     // sortArrayBasedOnNumber,
     concatArrays,
+    popAndShift,
 };
 
 
