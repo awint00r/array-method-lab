@@ -103,7 +103,13 @@ function findAboveFreezing (temperatures) {
 
 // Write a function called returnString that takes an array as a parameter.
 // Return the array as a string with an ampersand as the separator.
-
+function returnString (arr) {
+    if (Array.isArray(arr)) {
+        return arr.join('&');
+    } else {
+        return 'Invalid input'
+    }
+}
 
 
 
@@ -217,6 +223,7 @@ module.exports = {
     getLastIndexOf,
     getNumberOfTimes,
     findAboveFreezing,
+    returnString,
 };
 
 
