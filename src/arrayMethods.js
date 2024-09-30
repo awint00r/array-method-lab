@@ -103,7 +103,13 @@ function findAboveFreezing (temperatures) {
 
 // Write a function called returnString that takes an array as a parameter.
 // Return the array as a string with an ampersand as the separator.
-
+function returnString (arr) {
+    if (Array.isArray(arr)) {
+        return arr.join('&');
+    } else {
+        return 'Invalid input'
+    }
+}
 
 
 
@@ -122,7 +128,18 @@ function findAboveFreezing (temperatures) {
 
 // Write a function called concatArrays that takes in two arrays as parameters.
 // Return the concatonation of the two arrays in order as long as neither holds a string as a value at any index.
-
+function concatArrays (arr1, arr2) {
+    if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+        return 'Invalid input'
+    }
+    let arr1Values = arr1.some(value => typeof value === 'string')
+    let arr2Values = arr2.some(value => typeof value === 'string')
+        if (arr1Values || arr2Values) {
+    return 'Cannot concatenate arrays with strings'
+    } else {
+        return arr1.concat(arr2)
+    }
+}
 
 
 
@@ -217,6 +234,9 @@ module.exports = {
     getLastIndexOf,
     getNumberOfTimes,
     findAboveFreezing,
+    returnString,
+    // sortArrayBasedOnNumber,
+    concatArrays,
 };
 
 
