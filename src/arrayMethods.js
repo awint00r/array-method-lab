@@ -201,8 +201,14 @@ function getUpperCase(arr) {
 // Write a function called deleteAllOddValues that takes in an array.
 // Use the delete() array method to delete any odd numbers from the array, including any values that can be coerced into numbers.
 // Return the updated array.
-
-
+function deleteAllOddValues (arr) {
+    if (!Array.isArray(arr)) {
+        return 'Invalid input'
+    } for (let i = 0; i < arr.length; i++) {
+        if ((arr[i]) % 2 !== 0 && typeof arr[i] == 'number') 
+            delete arr[i]
+    } return arr
+}
 
 
 
@@ -260,6 +266,7 @@ module.exports = {
     popAndShift,
     oddValuesAtEvenIndex,
     getUpperCase,
+    deleteAllOddValues,
 };
 
 
