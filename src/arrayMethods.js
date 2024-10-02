@@ -218,7 +218,14 @@ function deleteAllOddValues (arr) {
 
 // Write a function called getCatNumber that takes in an array of nested arrays as a first parameter, and a string of a cat's name a the second parameter.
 // Return the age of the first cat found with that name.
-
+function getCatNumber(arr, catsName) {
+    if (!Array.isArray(arr) || typeof catsName !== 'string') {
+        return 'Invalid input'
+    } for (let i = 0; i < arr.length; i++) {
+        if (arr[i][0] === catsName) 
+            return arr[i][1]
+        } return 'Cat not found'
+    }
 
 
 
@@ -267,6 +274,7 @@ module.exports = {
     oddValuesAtEvenIndex,
     getUpperCase,
     deleteAllOddValues,
+    getCatNumber
 };
 
 
