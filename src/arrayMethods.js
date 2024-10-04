@@ -284,7 +284,6 @@ module.exports = {
     getNumberOfTimes,
     findAboveFreezing,
     returnString,
-    sortArrayBasedOnNumber,
     concatArrays,
     popAndShift,
     oddValuesAtEvenIndex,
