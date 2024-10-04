@@ -103,7 +103,13 @@ function findAboveFreezing (temperatures) {
 
 // Write a function called returnString that takes an array as a parameter.
 // Return the array as a string with an ampersand as the separator.
-
+function returnString (arr) {
+    if (Array.isArray(arr)) {
+        return arr.join('&');
+    } else {
+        return 'Invalid input'
+    }
+}
 
 
 
@@ -114,7 +120,23 @@ function findAboveFreezing (temperatures) {
 // Arrays must only contain one data type.
 // If the number is odd, return the array sorted in descending order.
 // If the number is even, return the array sorted in ascending order
-
+function sortArrayBasedOnNumber (arr, num) {
+    if (!Array.isArray(arr) || (arr.some(value => typeof value === 'string') && arr.some(value => typeof value === 'number'))) {
+        return 'Invalid input'
+    } if (arr.every(value => typeof value === 'number')) {
+        if (num % 2 === 0 ) {
+            return arr.sort((a,b) => (a-b));
+        } else {
+            return arr.sort((a,b) => (b-a));
+        }
+    } if (arr.every(value => typeof value === 'string')) {
+        if (num % 2 === 0 ) {
+            return arr.sort();
+        } else {
+            return arr.sort().reverse();
+        }
+    }
+}
 
 
 
@@ -122,7 +144,18 @@ function findAboveFreezing (temperatures) {
 
 // Write a function called concatArrays that takes in two arrays as parameters.
 // Return the concatonation of the two arrays in order as long as neither holds a string as a value at any index.
-
+function concatArrays (arr1, arr2) {
+    if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+        return 'Invalid input'
+    }
+    let arr1Values = arr1.some(value => typeof value === 'string')
+    let arr2Values = arr2.some(value => typeof value === 'string')
+        if (arr1Values || arr2Values) {
+    return 'Cannot concatenate arrays with strings'
+    } else {
+        return arr1.concat(arr2)
+    }
+}
 
 
 
@@ -134,7 +167,15 @@ function findAboveFreezing (temperatures) {
 // Example input versus output:
 // Original input array: ["yelow", "green", "blue", "red"]
 // Intended output array: ["red", "yellow", "green", "blue"]
-
+function popAndShift (arr) {
+    if (Array.isArray(arr)){
+        let lastValue = arr.pop()
+        arr.unshift(lastValue)
+        return arr;
+    } else {
+        return 'Invalid input'
+    }
+}
 
 
 
@@ -143,7 +184,13 @@ function findAboveFreezing (temperatures) {
 
 // Write a function called oddValuesAtEvenIndex that takes an array as a parameter
 // Return a new array that contains all the odd values of the original array that were located at an even index.
-
+function oddValuesAtEvenIndex (arr) {
+    if (!Array.isArray(arr)) {
+        return 'Invalid input'
+    } else {
+        return arr.filter((oddNums, EvenIndex ) => oddNums % 2 !== 0 && EvenIndex % 2 === 0 && typeof oddNums == 'number')
+    }
+}
 
 
 
@@ -153,7 +200,13 @@ function findAboveFreezing (temperatures) {
 // Write a function called getUpperCase that takes in an array as a parameter.
 // Translate all strings in the array to upper case.
 // Return only an array of only the string values.
-
+function getUpperCase(arr) {
+    if (!Array.isArray(arr)) {
+        return 'Invalid input'
+    } else {
+        return arr.filter(value => typeof value === 'string').map(onlyStrings => onlyStrings.toUpperCase())
+    }
+}
 
 
 
@@ -164,8 +217,14 @@ function findAboveFreezing (temperatures) {
 // Write a function called deleteAllOddValues that takes in an array.
 // Use the delete() array method to delete any odd numbers from the array, including any values that can be coerced into numbers.
 // Return the updated array.
-
-
+function deleteAllOddValues (arr) {
+    if (!Array.isArray(arr)) {
+        return 'Invalid input'
+    } for (let i = 0; i < arr.length; i++) {
+        if ((arr[i]) % 2 !== 0 && typeof arr[i] == 'number') 
+            delete arr[i]
+    } return arr
+}
 
 
 
@@ -175,7 +234,14 @@ function findAboveFreezing (temperatures) {
 
 // Write a function called getCatNumber that takes in an array of nested arrays as a first parameter, and a string of a cat's name a the second parameter.
 // Return the age of the first cat found with that name.
-
+function getCatNumber(arr, catsName) {
+    if (!Array.isArray(arr) || typeof catsName !== 'string') {
+        return 'Invalid input'
+    } for (let i = 0; i < arr.length; i++) {
+        if (arr[i][0] === catsName) 
+            return arr[i][1]
+        } return 'Cat not found'
+    }
 
 
 
@@ -217,6 +283,14 @@ module.exports = {
     getLastIndexOf,
     getNumberOfTimes,
     findAboveFreezing,
+    returnString,
+    sortArrayBasedOnNumber,
+    concatArrays,
+    popAndShift,
+    oddValuesAtEvenIndex,
+    getUpperCase,
+    deleteAllOddValues,
+    getCatNumber
 };
 
 
