@@ -120,7 +120,23 @@ function returnString (arr) {
 // Arrays must only contain one data type.
 // If the number is odd, return the array sorted in descending order.
 // If the number is even, return the array sorted in ascending order
-
+function sortArrayBasedOnNumber (arr, num) {
+    if (!Array.isArray(arr) || (arr.some(value => typeof value === 'string') && arr.some(value => typeof value === 'number'))) {
+        return 'Invalid input'
+    } if (arr.every(value => typeof value === 'number')) {
+        if (num % 2 === 0 ) {
+            return arr.sort((a,b) => (a-b));
+        } else {
+            return arr.sort((a,b) => (b-a));
+        }
+    } if (arr.every(value => typeof value === 'string')) {
+        if (num % 2 === 0 ) {
+            return arr.sort();
+        } else {
+            return arr.sort().reverse();
+        }
+    }
+}
 
 
 
@@ -268,7 +284,6 @@ module.exports = {
     getNumberOfTimes,
     findAboveFreezing,
     returnString,
-    // sortArrayBasedOnNumber,
     concatArrays,
     popAndShift,
     oddValuesAtEvenIndex,
